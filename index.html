@@ -1,0 +1,136 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+</head>
+<style type="text/css">
+h1 {
+  text-align:center;
+}
+p {
+  text-align:center;
+}
+.banner {
+  width:1000px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  background: url('https://www.epicous.com/images/test1.jpg') no-repeat;
+  background-size: cover;
+}
+.container {
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 166px;
+    height: 86px;
+}
+
+.digit {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 73px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 800;
+    vertical-align: middle;
+    width: 52px;
+    height: 86px;
+    text-align: center;
+}
+.example1 .digit {
+  background: #fff;
+  opacity:0.5;
+}
+
+.example2 .digit {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.example3 .digit {
+  padding: 0;
+}
+
+.example3 .digit rect {
+  fill: rgba(255, 255, 255, 0.78);
+}
+.example3 .digit text {
+  font-size: 73px;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+</style>
+<body>
+<h1>Variant 1 (Pure CSS)</h1>
+<p>Transparent background & digits.</p>
+
+<div class="banner">
+  <div class="container example1">
+    <div class="digit">1</div>
+    <div class="digit">2</div>
+    <div class="digit">9</div>
+  </div>
+</div>
+
+<h1>Variant 2 (Pure CSS)</h1>
+<p>Background with transparency, opaque digits.</p>
+
+<div class="banner">
+  <div class="container example2">
+    <div class="digit">1</div>
+    <div class="digit">2</div>
+    <div class="digit">9</div>
+  </div>
+</div>
+
+<h1>Variant 3 (SVG Text Mask)</h1>
+<p>Background with transparency, completely-transparent digits.</p>
+
+<div class="banner">
+  <div class="container example3">
+    <div class="digit">
+<svg viewBox="0 0 52 86" style="
+			width: 52px;
+			height: 86px;
+		">
+		<defs>
+		  <mask id="mask1" x="0" y="0" width="52" height="86">
+			<rect x="0" y="0" width="52" height="86"></rect>
+			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">1</text>
+		  </mask>
+		</defs>
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask1)"></rect>    
+		</svg>
+	</div>
+    <div class="digit">
+	<svg viewBox="0 0 52 86" style="
+			width: 52px;
+			height: 86px;
+		">
+		<defs>
+		  <mask id="mask2" x="0" y="0" width="52" height="86">
+			<rect x="0" y="0" width="52" height="86"></rect>
+			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">2</text>
+		  </mask>
+		</defs>
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask2)"></rect>    
+		</svg></div>
+    <div class="digit">
+<svg viewBox="0 0 52 86" style="
+			width: 52px;
+			height: 86px;
+		">
+		<defs>
+		  <mask id="mask3" x="0" y="0" width="52" height="86">
+			<rect x="0" y="0" width="52" height="86"></rect>
+			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">9</text>
+		  </mask>
+		</defs>
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask3)"></rect>    
+		</svg>
+		</div>
+  </div>
+</div>
+</body>
+</html>
