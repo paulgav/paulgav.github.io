@@ -1,6 +1,7 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/flipclock.css">
 </head>
 <style type="text/css">
 h1 {
@@ -19,7 +20,6 @@ p {
 }
 .container {
     margin: auto;
-    overflow: hidden;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -40,11 +40,56 @@ p {
     height: 86px;
     text-align: center;
 }
+.flip-clock-wrapper ul li a div div.inn {
+  background-color: transparent;
+}
+.flip-clock-wrapper ul {
+  background-color: transparent;
+}
+.flip-clock-wrapper ul.play li.flip-clock-active .down .shadow {
+  background: transparent;
+}
+.flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
+  background: transparent;
+}
+.flip-clock-wrapper ul {
+  width: 52px;
+  height: 86px;
+  border-radius: 0;
+}
+.flip-clock-wrapper ul li a div div.inn {
+  border-radius: 0;
+}
+.flip-clock-wrapper ul li a div.down {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.flip-clock-wrapper .flip {
+  box-shadow:none; 
+}
+.flip-clock-wrapper ul.play li.flip-clock-before {
+  /*display:none;*/
+}
+.flip-clock-dot {
+  background: rgba(255, 255, 255, 0.63);
+  border-radius: 0;
+  box-shadow: none;
+}
+.flip-clock-divider .flip-clock-label {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: medium;
+  font-family: 'Fjalla One', sans-serif;
+}
 .example1 .digit {
   background: #fff;
   opacity:0.5;
 }
+.flip:not(.play) li.flip-clock-before {
+  display:none;
+}
+.flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
 
+}
 .example2 .digit {
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -56,6 +101,17 @@ p {
   fill: rgba(255, 255, 255, 0.78);
 }
 .example3 .digit text {
+  font-size: 73px;
+  font-family: 'Fjalla One', sans-serif;
+}
+.example4.container {
+  width: 632px;
+  height: 32px;
+}
+.example4 .svg-digit rect {
+  fill: rgba(255, 255, 255, 0.78);
+}
+.example4 .svg-digit text {
   font-size: 73px;
   font-family: 'Fjalla One', sans-serif;
 }
@@ -95,12 +151,12 @@ p {
 			height: 86px;
 		">
 		<defs>
-		  <mask id="mask1" x="0" y="0" width="52" height="86">
+		  <mask id="mask_1" x="0" y="0" width="52" height="86">
 			<rect x="0" y="0" width="52" height="86"></rect>
 			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">1</text>
 		  </mask>
 		</defs>
-		<rect x="0" y="0" width="52" height="86" mask="url(#mask1)"></rect>    
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask_1)"></rect>    
 		</svg>
 	</div>
     <div class="digit">
@@ -109,12 +165,12 @@ p {
 			height: 86px;
 		">
 		<defs>
-		  <mask id="mask2" x="0" y="0" width="52" height="86">
+		  <mask id="mask_2" x="0" y="0" width="52" height="86">
 			<rect x="0" y="0" width="52" height="86"></rect>
 			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">2</text>
 		  </mask>
 		</defs>
-		<rect x="0" y="0" width="52" height="86" mask="url(#mask2)"></rect>    
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask_2)"></rect>    
 		</svg></div>
     <div class="digit">
 <svg viewBox="0 0 52 86" style="
@@ -122,15 +178,32 @@ p {
 			height: 86px;
 		">
 		<defs>
-		  <mask id="mask3" x="0" y="0" width="52" height="86">
+		  <mask id="mask_3" x="0" y="0" width="52" height="86">
 			<rect x="0" y="0" width="52" height="86"></rect>
 			<text font-size="70" text-anchor="middle" x="25" y="73" dy="1">9</text>
 		  </mask>
 		</defs>
-		<rect x="0" y="0" width="52" height="86" mask="url(#mask3)"></rect>    
+		<rect x="0" y="0" width="52" height="86" mask="url(#mask_3)"></rect>    
 		</svg>
 		</div>
   </div>
 </div>
+
+<script src="assets/js/libs/jquery-3.2.1.min.js"></script>
+<script src="assets/js/libs/flipclock.js"></script>
+
+<h1>Variant 4 Transparent SVG + flip-flop plug-in</h1>
+<p>Background with transparency, completely-transparent digits.</p>
+<div class="banner">
+  <div class="container example4">
+    <div class="clock"></div>
+  </div>	
+</div>
+<script type="text/javascript">
+	var clock = $('.clock').FlipClock(3600 * 24 * 3, {
+		clockFace: 'DailyCounter',
+		countdown: true
+	});
+</script>
 </body>
 </html>
